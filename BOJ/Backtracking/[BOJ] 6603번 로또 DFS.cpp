@@ -29,7 +29,7 @@ int main() {
 	while (1) {
 		cin >> n;
 		if (n == 0) return 0;
-
+		res = vector<int>(n,0);
 		arr = vector<int>(n, 0);
 		for (int i = 0; i < n; i++) {
 			cin >> arr[i];
