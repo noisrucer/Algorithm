@@ -1,4 +1,4 @@
-# Algorithm-Master
+# Devotion, Passion, and Creativity
 
 I will be a Master of Algorithm.
 
