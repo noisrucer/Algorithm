@@ -1,0 +1,88 @@
+
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+int n, m; 
+int dx[4] = { 1,0,-1,0 };
+int dy[4] = { 0,1,0,-1 };
+#define X first
+#define Y second
+void fire(string board[], int dist[1001][1001]) { //BFS for Fire
+	queue<pair<int, int>>Q;
+	for (int i = 0; i < n; i++)fill(dist[i], dist[i] + m, -1);
+	bool isFireExist = false;
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < m; j++) {
+			if (board[i][j] == '*') {
+				isFireExist = true;
+				Q.push({ i,j });
+				dist[i][j] = 0;
+			}
+		}
+	}
+	if (!isFireExist) return;
+	
+	while (!Q.empty()) {
+		auto cur = Q.front(); Q.pop();
+		for (int dir = 0; dir < 4; dir++) {
+			int nx = cur.X + dx[dir];
+			int ny = cur.Y + dy[dir];
+			if (nx < 0 || ny < 0 || nx >= n || ny >= m)continue;
+			if (board[nx][ny] == '#')continue;
+			if (dist[nx][ny] != -1)continue;
+			dist[nx][ny] = dist[cur.X][cur.Y] + 1;
+			Q.push({ nx,ny });
+		}
+	}
+
+ }
+int katusa(string board[], int dist_Katusa[1001][1001], int dist_Fire[1001][1001]) {//BFS for the Katusa with the Fire Dist Matrix Info
+	queue<pair<int, int>>Q;
+	for (int i = 0; i < n; i++)fill(dist_Katusa[i], dist_Katusa[i] + m, -1);
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (board[i][j] == '@') {
+				Q.push({ i,j });
+				dist_Katusa[i][j] = 0;
+				break;
+			}
+		}
+	}
+	while (!Q.empty()) {
+		auto cur = Q.front(); Q.pop();
+		for (int dir = 0; dir < 4; dir++) {
+			int nx = cur.X + dx[dir];
+			int ny = cur.Y + dy[dir];
+			if (nx < 0 || ny < 0 || nx >= n || ny >= m) {
+				return dist_Katusa[cur.X][cur.Y]+1;
+			}
+			if (board[nx][ny] == '#')continue;
+			if (dist_Katusa[nx][ny] != -1)continue;
+			dist_Katusa[nx][ny] = dist_Katusa[cur.X][cur.Y] + 1;
+			if (dist_Fire[nx][ny] != -1) { //if there is no fire(dist matrix for Fire is unchanged -1), conduct normal BFS(skip this if statement)
+				if (dist_Fire[nx][ny] <= dist_Katusa[nx][ny])continue;
+			}
+			Q.push({ nx,ny });
+		}
+	}
+	return -1;
+}
+int main() {
+	int T;
+	cin >> T;
+	while (T--) {
+		cin >> m >> n;
+		string board[1001];
+		for (int i = 0; i < n; i++) 
+			cin >> board[i];
+		
+		int dist_Fire[1001][1001];
+		int dist_Katusa[1001][1001];
+		fire(board, dist_Fire); //Get distance matrix of fire
+		int num = katusa(board, dist_Katusa, dist_Fire); //get distance matrix for the katusa. Return -1 if unable to escape
+		if (num == -1) cout << "IMPOSSIBLE\n";
+		else cout << num<<"\n";
+
+	}
+}
