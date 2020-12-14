@@ -1,7 +1,6 @@
 class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {
-        //O(n) Solution
         int n=triangle.size();
         vector<int>cpy = triangle.back();
         for(int i=n-2; i>=0; i--){
@@ -10,8 +9,7 @@ public:
             }
         }
         return cpy[0];
-        /* O(n^2) Solution
-
+        /*
         vector<vector<int>>dp(n,vector<int>(n,INT_MAX));
         dp[0][0]=triangle[0][0];
         for(int i=1; i<triangle.size(); i++){
