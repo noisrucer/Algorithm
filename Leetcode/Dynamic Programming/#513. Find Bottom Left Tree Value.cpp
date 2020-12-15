@@ -33,6 +33,42 @@ public:
         }
 
         return 0;
+
+    }
+};
+
+//DFS
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void helper(TreeNode* root, int &leftVal, int &maxDepth, int currentDepth){
+        if(!root) return;
         
+        helper(root->left,leftVal,maxDepth,currentDepth+1);
+        helper(root->right,leftVal,maxDepth,currentDepth+1);
+        
+        if(currentDepth>maxDepth){
+            maxDepth=currentDepth;
+            leftVal = root->val;
+            
+        }
+    }
+    
+    
+    int findBottomLeftValue(TreeNode* root) {
+        int maxDepth=0;
+        int leftVal = root->val;
+        helper(root,leftVal,maxDepth,0);
+        return leftVal;
     }
 };
