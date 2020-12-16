@@ -19,3 +19,21 @@ public:
         return topdown(stones,prefix,0,n-1);
     }
 };
+
+
+//Simplified Version - Total Sum without prefix sum array
+class Solution {
+public:
+   int dp[1001][1001]{};
+    int topdown(vector<int>&stones, int i, int j, int sum){
+        if(i==j) return 0;
+        if(dp[i][j]) return dp[i][j];
+        return dp[i][j]=max(sum-stones[i]-topdown(stones,i+1,j,sum-stones[i]),
+                    sum-stones[j]-topdown(stones,i,j-1,sum-stones[j]));
+    }
+    
+    int stoneGameVII(vector<int>& stones) {
+        int n=stones.size();
+        return topdown(stones,0,n-1,accumulate(stones.begin(),stones.end(),0));
+    }
+};
