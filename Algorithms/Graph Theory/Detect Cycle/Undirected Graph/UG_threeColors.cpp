@@ -2,34 +2,32 @@
 
 
 //3 Coloring
-vector<int>visit;
 
-bool isCycle(vector<int>g[], int cur){
+bool isCycle(vector<int>g[],vector<int>&visit,int cur){
    if(visit[cur]==2) return true;
    visit[cur]=1;
    
    for(int child=0; child<g[cur].size(); child++){
        if(visit[g[cur][child]]==1) visit[g[cur][child]]=2;
        else{
-           bool FLAG = isCycle(g,g[cur][child]);
-            visit[cur]--;
+           bool FLAG = isCycle(g,visit,g[cur][child]);
+           visit[cur]--;
            if(FLAG) return true;
        }
    }
    visit[cur]=0;
-  
    return false;
 }
 
 
 bool isCyclic(vector<int>g[], int V)
 {
-    visit.resize(V,0);
+    vector<int>visit(V,0);
     
     for(int node=0; node<V; node++){
         visit[node]=1;
         for(int child=0; child<g[node].size(); child++){
-            bool FLAG = isCycle(g,g[node][child]);
+            bool FLAG = isCycle(g,visit,g[node][child]);
             visit[node]--;
             if(FLAG) return true;
         }
@@ -39,4 +37,3 @@ bool isCyclic(vector<int>g[], int V)
     
    return false;
 }
-
