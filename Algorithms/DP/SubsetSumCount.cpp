@@ -14,9 +14,7 @@ int subsetCount(vector<int>&nums, int k){
     for(int j=1; j<=k; j++){
       if(nums[i-1]>j) dp[i][j]=dp[i-1][j];
       else{
-       //if(dp[i-1][j-nums[i-1]]!=0){ -> can be omitted
          dp[i][j]=dp[i-1][j]+dp[i-1][j-nums[i-1]];
-       //}
       }
       
     }
