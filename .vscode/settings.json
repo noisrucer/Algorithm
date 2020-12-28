@@ -3,6 +3,9 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "iterator": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "iostream": "cpp",
+        "memory": "cpp",
+        "utility": "cpp"
     }
 }
