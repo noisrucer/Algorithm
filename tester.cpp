@@ -2,14 +2,12 @@
 #include <math.h>
 #include <unordered_map>
 #include <map>
+#include <vector>
 using namespace std;
 
 int main(){
-   map<int,int>mp;
-  mp[0]=6;
-  mp[364]=4;
-  mp[3]=5;
-  for(auto &p: mp){
-      cout<<p.first<<" "<<p.second<<endl;
-  }
+    int n=1, m=3;
+   vector<vector<vector<int>>>board(n,vector<vector<int>>(m));
+   board[0][0].push_back(0);
+   cout<<board[0][0];
 }
