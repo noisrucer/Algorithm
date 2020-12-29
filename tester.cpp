@@ -6,8 +6,5 @@
 using namespace std;
 
 int main(){
-    int n=1, m=3;
-   vector<vector<vector<int>>>board(n,vector<vector<int>>(m));
-   board[0][0].push_back(0);
-   cout<<board[0][0];
+    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
 }
