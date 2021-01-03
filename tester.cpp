@@ -8,6 +8,5 @@ using namespace std;
 
 int main(){
     string s = "Abc";
-    s+=string(1,'c');
-    cout<<(s.length()>1);
+   cout<<s.substr(5);
 }
