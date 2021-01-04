@@ -4,13 +4,22 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <set>
 using namespace std;
 
 int main(){
-    map<int,int>mp;
-    mp[1]=3;
-    mp[3]=4;
-    for(auto i: mp){
-        cout<<i.first<<" "<<i.second<<endl;
-    }
+//    vector<int>arr;
+//    arr.insert(arr.begin(),4,1);
+//    for(auto i: arr){
+//        cout<<i<<" ";
+//    }
+
+   set<int,greater<int>>st;
+   st.insert(1);
+   st.insert(6);
+   st.insert(4);
+   st.insert(6);
+   for(auto i: st){
+       cout<<i<<" ";
+   }
 }
