@@ -7,6 +7,10 @@
 using namespace std;
 
 int main(){
-    string s = "Abc";
-   cout<<s.substr(5);
+    map<int,int>mp;
+    mp[1]=3;
+    mp[3]=4;
+    for(auto i: mp){
+        cout<<i.first<<" "<<i.second<<endl;
+    }
 }
