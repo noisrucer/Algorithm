@@ -35,3 +35,18 @@ public:
         return helper(root);
     }
 };
+
+
+//Another solution
+void invert(Tree* root){
+    if(!root) return;
+    invert(root->left);
+    invert(root->right);
+    Tree* leftChild = root->left;
+    root->left = root->right;
+    root->right = leftChild;
+}
+Tree* solve(Tree* root) {
+    invert(root);
+    return root;
+}
