@@ -17,7 +17,6 @@ int LRS(string s){
 int main() {
 	string str;
     cin>>str;
-	    cout<<LRS(str)<<"\n";
-	
+	cout<<LRS(str)<<"\n";
 	return 0;
 }
