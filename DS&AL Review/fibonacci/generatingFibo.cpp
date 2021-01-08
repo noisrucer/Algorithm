@@ -1,13 +1,3 @@
-#include <iostream>
-#include <math.h>
-#include <unordered_map>
-#include <map>
-#include <vector>
-#include <string>
-#include <set>
-#include <deque>
-using namespace std;
-
 
 int main(){
     int n=100;
