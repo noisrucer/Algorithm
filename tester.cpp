@@ -6,18 +6,11 @@
 #include <string>
 #include <set>
 #include <deque>
+#include <fstream>
 using namespace std;
 
 
 int main(){
-    int n=100;
-   
-   int s = 0, e = 1;
-    while (s+e <= n) {
-        int temp = s + e;
-        cout<<temp<<" ";
-        s = e;
-        e = temp;
-        
-    }
+    int x =5;
+ int*a =  &x;
 }
