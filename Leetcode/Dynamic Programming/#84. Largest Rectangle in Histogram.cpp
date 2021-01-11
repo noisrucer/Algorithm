@@ -1,3 +1,4 @@
+//O(n) left and right limit
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
@@ -27,5 +28,29 @@ public:
         
         return max_area;
         
+    }
+};
+
+//O(n) solution one way
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int n = heights.size();
+        if(n==0) return 0;
+        if(n==1) return heights[0];
+        heights.push_back(0); n++;
+        stack<int>index;
+        int i=0, h,j, max_area=0;
+        while(i<n){
+            if(index.empty() || heights[i] >= heights[index.top()]) index.push(i++);
+            else{
+                h = heights[index.top()];
+                index.pop();
+                j = index.empty() ? -1 : index.top();
+                max_area = max(max_area,h*(i-j-1));
+            }
+        }
+        
+        return max_area;
     }
 };
