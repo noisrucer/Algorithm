@@ -21,3 +21,22 @@ int solve(Tree* root) {
     dfs(root,0,deep);
     return deep.second;
 }
+
+
+//BFS
+
+int solve(Tree* root) {
+    queue<Tree*>Q;
+    Q.push(root);
+    int res;
+    while(!Q.empty()){
+        int size = Q.size();
+        res = Q.front()->val;
+        for(int i=0; i<size; i++){
+            auto cur = Q.front(); Q.pop();
+            if(cur->left) Q.push(cur->left);
+            if(cur->right) Q.push(cur->right);
+        }
+    }
+    return res;
+}
