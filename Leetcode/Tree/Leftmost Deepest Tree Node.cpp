@@ -24,7 +24,6 @@ int solve(Tree* root) {
 
 
 //BFS
-
 int solve(Tree* root) {
     queue<Tree*>Q;
     Q.push(root);
