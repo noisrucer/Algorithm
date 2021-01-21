@@ -3,11 +3,14 @@
 using namespace std;
 
 int binarySearch(vector<int>&arr, int i, int j, int &target){
-    if(i>j) return -1; //when i>j, BS fails and there's no target in the array
-    int m = i + (j-i)/2; //set the mid
-    if(arr[m] == target) return m; //when found, return its index
-    else if(arr[m] > target) return binarySearch(arr,i,m-1,target);
-    else return binarySearch(arr,m+1,j,target);
+    int m;
+    while(i<=j){
+        m = i + (j-i)/2; //find mid
+        if(arr[m] == target) return m; //If found, return the index
+        else if(arr[m] > target) j = m - 1;
+        else i = m + 1;
+    }
+    return -1; //Not found, return -1;
 }
 int main(){
     vector<int>arr = {1,2,53,0,14,45,4,6,3,52,27,245,81,57,348,34,7};
