@@ -5,6 +5,7 @@ struct Node
     int val;
     int key;
     Node *next;
+    
     Node(){
         val = 0;
         key = 0;
