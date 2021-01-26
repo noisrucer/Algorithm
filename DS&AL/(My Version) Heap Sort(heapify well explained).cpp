@@ -34,6 +34,7 @@ void printheap(vector<int> heap) {
 	for (int x : heap)
 		cout << x << " ";
 }
+
 int main() {
 	int N;
 	cin >> N;
@@ -47,7 +48,5 @@ int main() {
 	//heap={4,6,2,10,2} N=5;
 	heapsort(heap, N);
 	printheap(heap);
-
-
 
 }
