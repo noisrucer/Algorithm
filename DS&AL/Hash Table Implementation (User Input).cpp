@@ -33,6 +33,7 @@ int HashMap::hashFunction(string key) {
 		hashValue += i;
 	return hashValue % hashSize;
 }
+
 bool HashMap::isKeyExist(string key) {
 	int hashValue = hashFunction(key);
 	auto itr = table[hashValue].begin();
