@@ -18,11 +18,4 @@ int solve(vector<int>& nums) {
         res = max(res, increase[i]+decrease[i]-1);
     }
     return res;
-            
-        
-    
-            
-        
-    
-
 }
