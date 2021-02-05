@@ -12,8 +12,7 @@ vector<vector<int>> solve(vector<int>& nums) {
         
         res.push_back(sub);
     }
-    if(n%2==0){
-        res.push_back({left+right});
-    }
+    if(n%2==0) res.push_back({left+right});
+    
     return res;
 }
