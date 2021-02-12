@@ -15,6 +15,7 @@ void selectionSort(vector<int>&arr){
         }
     }
 }
+
 int main(){
     vector<int>arr={10,9,8,7,6,5,4,3,2,1};
     selectionSort(arr);
