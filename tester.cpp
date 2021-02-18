@@ -8,7 +8,8 @@ int solve(int n, int m) {
     return solve(n,m-1) + solve(n,1);
 }
 int main(){
-   double x = 1.5;
-   cout<<int(x)<<endl;
-   cout<<(int)x<<endl;
+   vector<int>arr = {7,4,5,3};
+   sort(arr.begin(), arr.end(), greater<int>());
+   for(auto i: arr)cout<<i<<" ";
+
 }
