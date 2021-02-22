@@ -19,6 +19,7 @@ void merge(vector<int>&arr, int l, int m , int r){
     for(auto e: temp){
         arr[k++] = e;
     }
+    
 }
 
 void mergeSort(vector<int>&arr, int l, int r){

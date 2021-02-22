@@ -8,7 +8,7 @@ void selectionSort(vector<int>&arr){
     for(int i=0; i<n-1; i++){
         min_index = i;
         for(int j=i+1; j<n; j++){
-            if(arr[j]<arr[i]) min_index = j;
+            if(arr[j]<arr[min_index]) min_index = j;
         }
         if(min_index!=i){
             swap(arr[min_index],arr[i]);
@@ -17,7 +17,7 @@ void selectionSort(vector<int>&arr){
 }
 
 int main(){
-    vector<int>arr={10,9,8,7,6,5,4,3,2,1};
+    vector<int>arr={1,8,4,4,1,6,4,5,2,7,467,8746,3567,2,2,3,2,7,8,8,5,35,25,12,1,7,7};
     selectionSort(arr);
     for(auto i:arr) cout<<i<<" ";
 }
