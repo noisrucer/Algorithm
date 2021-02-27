@@ -1,3 +1,24 @@
+//1D DP
+vector<int>dp;
+int n;
+int topdown(vector<int>&w, vector<int>&v, int c){
+    if(c<=0) return 0;
+    if(dp[c]!=-1) return dp[c];
+    for(int i=0; i<n; i++){
+        if(w[i]<=c){
+            dp[c] = max(dp[c],v[i]+topdown(w,v,c-w[i]));
+        }
+    }
+    return dp[c]==-1?0:dp[c];
+}
+int solve(vector<int>& w, vector<int>& v, int c) {
+    n = w.size();
+    dp.clear();
+    dp.resize(c+1,-1);
+    return topdown(w,v,c);
+}
+
+//2D DP
 vector<vector<int>>dp;
 int n;
 int topdown(vector<int>&w, vector<int>&v, int c, int i){
