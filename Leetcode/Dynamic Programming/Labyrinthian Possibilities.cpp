@@ -28,6 +28,7 @@ int solve(vector<vector<int>>& matrix) {
             if(matrix[i-1][j-1]==1 || (i==1 && j==1)) continue;
             dp[i][j] = (dp[i-1][j] + dp[i][j-1])%MOD;
         }
+        
     }
 
     return dp[n][m];
