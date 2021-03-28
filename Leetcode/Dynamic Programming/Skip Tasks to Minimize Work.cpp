@@ -1,3 +1,4 @@
+//Space Complexity: O(n^2) Topdown
 vector<vector<int>>dp;
 int topdown(vector<int> &nums, int i, int j){
     //Base case: i<0
@@ -16,4 +17,20 @@ int solve(vector<int>& nums) {
     dp.clear();
     dp.resize(n,vector<int>(2,-1));
     return min(topdown(nums,n-1,1),topdown(nums,n-1,0));
+}
+
+//Space Complexity: O(n) Botom up
+int solve(vector<int>& nums) {
+    int n = nums.size();
+    if(n<=1) return 0;
+
+    vector<int>dp(n+1,0);
+    dp[0] = 0;
+    dp[1] = nums[0];
+
+    for(int i=2; i<=n; i++){
+        dp[i] = min(dp[i-1],dp[i-2]) + nums[i-1];
+    }
+
+    return min(dp[n],dp[n-1]);    
 }
