@@ -1,1 +1,1 @@
-cout<<l<<" "<<h<<endl;
+cout<<s1_cnt<<" "<<s2_cnt<<endl;
