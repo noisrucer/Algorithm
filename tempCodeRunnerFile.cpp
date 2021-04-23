@@ -1,1 +1,3 @@
-cout<<s1_cnt<<" "<<s2_cnt<<endl;
+for(int i=0; i<n; i++){
+        printBinary("","",i,i+1,n);
+    }
