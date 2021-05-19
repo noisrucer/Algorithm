@@ -57,7 +57,6 @@ Node* splay(Node* root, Node* x){
         
         //If the target doesn't fall any of those two if, else if statements, we can just perform only one rotation.
         return rightRotate(root); //second rightRotation
-
         //Above logics are exactly the same in symmetry for the else block below.
     }
 
