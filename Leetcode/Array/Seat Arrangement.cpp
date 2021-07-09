@@ -10,6 +10,18 @@ bool solve(int n, vector<int>& seats) {
             temp++;
         }
     }
-    cout<<availableSeats;
+
     return availableSeats >= n;
+}
+
+// #2
+bool solve(int n, vector<int>& seats) {
+    for(int i=0; i<seats.size(); i++){
+        if(n==0) return true;
+        if(seats[i]==1) continue;
+        if((i>0&&seats[i-1]==1) || (i<seats.size()-1&&seats[i+1]==1)) continue;
+        n--;
+        seats[i] = 1;
+    }
+    return n==0;
 }
