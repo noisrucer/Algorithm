@@ -1,4 +1,5 @@
 vector<int>res;
+
 void helper(Tree* root, int level){
     if(!root) return;
     if(res.size() < level + 1) res.push_back(root->val);
