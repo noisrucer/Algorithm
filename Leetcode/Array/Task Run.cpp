@@ -11,6 +11,5 @@ int solve(vector<int>& nums, int k) {
         }
         timestamp[nums[i]] = i + offset;
     }
-
     return n + offset;
 }
