@@ -7,12 +7,12 @@ int solve(vector<int>& nums, vector<int>& mult) {
     sort(mult.begin(), mult.end());
 
     while(n1 <= n2 && m1 <= m2){
-        if(nums[n1]*mult[m1] >= nums[n2]*mult[m2]){
-            sum += nums[n1++]*mult[m1++];
+        if(nums[n1] * mult[m1] >= nums[n2] * mult[m2]){
+            sum += nums[n1++] * mult[m1++];
         }else{
-            sum += nums[n2--]*mult[m2--];
+            sum += nums[n2--] * mult[m2--];
         }
     }
-    
+
     return sum;
 }
