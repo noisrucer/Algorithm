@@ -1,3 +1,20 @@
+// BOTTOM-UP : preferred
+int solve(string msg) {
+    int n = msg.length();
+    vector<int>dp(n+1,0);
+    dp[0] = 1; dp[1] = (msg[0]!='0');
+    int temp;
+
+    for(int i=2; i<=n; i++){
+        temp = stoi(msg.substr(i-2,2));
+        if(msg[i-1]!='0') dp[i] += dp[i-1];
+        if(temp>=10 && temp<=26) dp[i] += dp[i-2];
+    }
+    return dp[n];
+}
+
+
+// TOPDOWN
 vector<int>dp;
 int topdown(string &msg, int i){
     if(i<0) return 1;
