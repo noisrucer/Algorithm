@@ -27,8 +27,6 @@ vector<int> solve(Tree* root) {
                if(cur->left) dq.push_front(cur->left); 
            }
         }
-        // for(auto i: res) cout<<i<<" ";
-        // cout<<endl;
         level++;
     }
     return res;
