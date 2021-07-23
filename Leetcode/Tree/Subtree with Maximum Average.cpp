@@ -1,10 +1,3 @@
-// S(x) = x->val + S(x->left) + S(x->right)
-// N(x) = 1 + N(x->left) + N(x->right);
-// Avg(x) = S(x)/N(x)
-
-//  pair.first -> S(x)
-//  pair.second -> N(x)
-
 double res;
 double sum_root;
 double num_root;
