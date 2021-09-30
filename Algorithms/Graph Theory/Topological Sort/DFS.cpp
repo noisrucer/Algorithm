@@ -11,7 +11,7 @@ public:
         }
         res[cnt--]=curr;
     }
-    
+
     bool isCycle(vector<vector<int>>&adj,vector<int>&indegree){
          queue<int>Q;
         int cycle_cnt=indegree.size();
