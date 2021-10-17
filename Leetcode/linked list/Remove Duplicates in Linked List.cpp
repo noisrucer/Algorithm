@@ -11,8 +11,8 @@ LLNode* solve(LLNode* node) {
             cur->next = next->next;
         }else{
             cur = cur->next;
+            st.insert(next->val);
         }
-        st.insert(next->val);
     }
 
 
