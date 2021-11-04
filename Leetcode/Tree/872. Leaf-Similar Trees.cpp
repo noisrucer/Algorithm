@@ -1,3 +1,21 @@
+// Using string-trick
+class Solution {
+public:
+    void postorder(TreeNode* root, string &s){
+        if(!root) return;
+        if(root->left == root->right) s += to_string(root->val) + "*";
+        postorder(root->left, s);
+        postorder(root->right, s);
+    }
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        string s1, s2;
+        postorder(root1, s1);
+        postorder(root2, s2);
+        return s1 == s2;
+    }
+};
+
+// standard vector solution
 class Solution {
 public:
     
