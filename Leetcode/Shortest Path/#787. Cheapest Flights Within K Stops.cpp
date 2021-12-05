@@ -4,7 +4,45 @@
 // DP
 // Bellman Ford
 
-// DFS
+// TODO: Bellman-Ford
+class Solution {
+public:
+    
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        // Bellman Ford
+        // Idea: Go through "All edges" k+1 times
+        // Keep prices & tempPrices separately
+        // Perform edge relaxation if prices[u] + cost(u->v) < tempPrices[v]
+        // Reason we use tempPrices is => try with the test case with k = 0, you'll find out by trying out!!!
+        
+        k++;
+        vector<int>prices(n, INT_MAX), tempPrices(n, INT_MAX);
+        prices[src] = 0;
+        tempPrices[src] = 0;
+        int u, v, p;
+        
+        for(int i=0; i<k; i++){
+            for(auto &f: flights){
+                u = f[0]; // start node
+                v = f[1]; // end node
+                p = f[2]; // price
+                
+                if(prices[u] == INT_MAX) continue;
+                if(prices[u] + p < tempPrices[v]){
+                    tempPrices[v] = prices[u] + p;
+                }
+            }
+            
+            prices = tempPrices;
+        }
+        
+        return prices[dst] == INT_MAX ? -1 : prices[dst];
+        
+        
+    }
+};
+
+// TODO: DFS
 class Solution {
 public:
     int res = INT_MAX;
@@ -49,7 +87,7 @@ public:
     }
 };
 
-// Dijkstra - Priority Queue
+// TODO: Dijkstra - Priority Queue
 class Solution {
 public:
     int dest;
@@ -93,3 +131,5 @@ public:
         return res == INT_MAX ? -1 : res;
     }
 };
+
+
