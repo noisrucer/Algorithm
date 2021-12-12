@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<int>alphabets(26,0);
+        if(s.length() != t.length()) return false;
+        int cnt = s.length(), len = cnt;
+        
+        for(char &c: s) alphabets[c-'a']++;
+        for(char &c: t) cnt -= (alphabets[c-'a']-- != 0);
+        
+        return cnt == 0;
+    }
+};
