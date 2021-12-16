@@ -1,17 +1,14 @@
 bool solve(string s, int k) {
-    int n = s.length();
-    vector<int>pos;
-    for(int i=0; i<n; i++) if(s[i]=='x') pos.push_back(i);
-    int m = pos.size();
+    int n = s.length(), prevX = -1, maxDist = 0;
 
-    int flag = -1;
     for(int i=0; i<n; i++){
-        if(s[i]=='x'){
-            flag++;
-            continue;
-        }
-        if(min(flag>=0 ? abs(pos[flag]-i) : INT_MAX, flag+1<m ? abs(pos[flag+1]-i) : INT_MAX) >= k) return true;
+        if(s[i]=='.') continue;
+        if(prevX == -1) maxDist = i;
+        else maxDist = max(maxDist, (i - prevX) / 2);
+        prevX = i;
     }
 
-    return false;
+    if(s[n-1] == '.') maxDist = max(maxDist,n-prevX-1);
+
+    return maxDist >= k;
 }
