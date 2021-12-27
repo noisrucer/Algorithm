@@ -19,7 +19,7 @@ class Solution:
         indices = dict() #(value, index) pair를 저장 / indices[A[i]] = i 
         
         for j, val in enumerate(nums): # val: A[j]
-            if (target - val) in indices.keys(): # A[i] = target - A[j]이 존재한다면 성공 
+            if (target - val) in indices.keys(): # A[i] = target - A[j]가 존재한다면 성공 
                 return [indices[target - val], j] # i == indices[A[i]] = indices[target - A[j]]
             else: # (value, index)
                 indices[val] = j # indices[A[i]] = i
