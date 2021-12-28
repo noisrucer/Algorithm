@@ -4,7 +4,8 @@
 3) 자료구조: None
 4) 해결전략: 
    - A[i] + A[i+1] + ... + A[j] + A[j+1] < A[j+1]이면 cur_max = A[j+1]
-   - cur_max가 업데이트 될때마다 glob_max = max(glob_max, cur_max`)
+     ㄴ무슨 뜻인지 고민해보기: kadane's algorithm의 핵심
+   - cur_max가 업데이트 될때마다 glob_max = max(glob_max, cur_max)
 
 <TIPS>
 '''
