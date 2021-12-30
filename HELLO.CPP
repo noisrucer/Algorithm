@@ -27,10 +27,10 @@ void thankyou(int userID, int price){
 }
 
 int main(){       
-   int user_purchased_price[10] = {10, 30, 300, 40, 50, 2, 6, 3, 4, 6};
+   int i, colon, j;
+   char ch;
+   cin >> i >> ch >> j;
    
-   for(int id=0; id<10; id++)
-       if(user_purchased_price[id] >= 50)
-           thankyou(id, user_purchased_price[id]);
+   cout<<i<<":"<<j;
 }
 
