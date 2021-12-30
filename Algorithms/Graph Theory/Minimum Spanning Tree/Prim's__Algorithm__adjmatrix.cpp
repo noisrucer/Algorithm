@@ -30,6 +30,7 @@ int MST(int V, int E, vector<vector<int>> &graph) {
             }
         }
     }
+    
     int weight_sum = 0;
     for(int i=1; i<V; i++){
         weight_sum+=graph[i][parent[i]];
