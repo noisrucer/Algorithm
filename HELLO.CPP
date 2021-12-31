@@ -27,10 +27,10 @@ void thankyou(int userID, int price){
 }
 
 int main(){       
-   int i, j;
-   char ch;
+   int year, month, day;
+   char dot;
 
-   cin >> i >> ch >> j;
-   cout<<i<<":"<<j;
+   cin >> year >> dot >> month >> dot >> day;
+   cout << year << "." << month << "." << day;
 }
 

@@ -1,3 +1,14 @@
+'''
+1) 문제정의: 주어진 문자열(괄호)가 valid한 괄호들인지 확인
+2) 알고리즘: Stack
+3) 자료구조: Stack
+4) 해결전략: 
+   - ], }, )가 있으면 바로 직전의 괄호는 무조건 각각 [, {, ( 이여야 함 -> 왜? 
+   - [, {, (은 stack push, ], }, )은 바로 직전 괄호를 확인되고 매칭되면 pop, 매칭안되면 return false
+
+<TIPS>
+'''
+
 class Solution:
     def isValid(self, s: str) -> bool:
         mapping = {"}" : "{",
