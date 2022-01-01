@@ -1,3 +1,14 @@
+'''
+1) 문제정의: tree의 maximum depth
+2) 알고리즘: Tree
+3) 자료구조: None
+4) 해결전략: 
+   - 일반화: f(r) : root r 트리의 maximum depth
+   - f(r) = 1 + max(f(r.left), f(r.right))
+
+<TIPS>
+'''
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
