@@ -3,7 +3,7 @@
 2) 알고리즘: Dynamic Programming / Recursion
 3) 자료구조: Array for DP
 4) 해결전략: 
-   1) Generalization - fibo(n) = nth fibonacci number
+   1) Generalization - nth fibonacci number
    2) Define the "Recurrence Relation" -> [IMPORTANT] 1) 과정을 "그대로" 점화식으로 변경.
       - General Case / Base Case
       - Hardest step
