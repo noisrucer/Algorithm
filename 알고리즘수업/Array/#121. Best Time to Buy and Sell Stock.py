@@ -5,7 +5,7 @@ class Solution:
         
         # cur_max, glob_max initialization
         glob_max = cur_max = -1
-        
+    
         for i in range(1, n):
             diff = prices[i] - prices[i-1]
             cur_max = max(diff, cur_max + diff)
