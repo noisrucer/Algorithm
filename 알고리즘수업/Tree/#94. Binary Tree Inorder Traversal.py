@@ -17,3 +17,6 @@ class Solution:
         
         inorder(root)
         return res
+    
+    
+    f(root.left) = root를 맨 꼭대기로 하는 tree의 inorder traversal을 출력하라
