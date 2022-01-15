@@ -4,6 +4,17 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+'''
+점화식: f(node) = node를 root로 하는 tree에서 target node를 반환
+Base Case
+1) if node is None ?
+
+Genera Case
+1) if target < node.val ?
+2) if target > node.val ?
+3) if target == node.val ?
+'''
 class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         def help(root):

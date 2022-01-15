@@ -4,6 +4,17 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+'''
+점화식: f(node) = node를 root로 하는 (sub)tree에서 [low,high]에 들어가는 모든 수의 합을 반환 (it'd be amazing if we take advantage of BST!)
+Base Case: 
+    1) if node is None ?
+General Case:
+    1) if node.val < low ?
+    2) if node.val > high ?
+    3) if low <= node.val <= high ?
+
+'''
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:  
         
