@@ -30,3 +30,17 @@ class Solution:
                 return help(root.left)
             
         return help(root)
+    
+    
+    
+int sum = 0
+
+int a = 1;
+
+if(a == 1){
+    sum++;
+}
+
+sum += (a == 1)
+
+cout<<sum;

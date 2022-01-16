@@ -17,7 +17,6 @@ General Case:
 '''
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:  
-        
         def help(root):
             if root is None: # If there's nothing, then obviously we cannot find anything
                 return 0
