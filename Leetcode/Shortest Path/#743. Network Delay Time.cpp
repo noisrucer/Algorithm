@@ -42,3 +42,50 @@ public:
         
     }
 };
+
+
+// Dijkstra's without priority queue
+class Solution {
+public:
+    int getMinNode(vector<int>&dist, vector<int>&visited){
+        int minNode = -1;
+        int minVal = INT_MAX;
+        
+        for(int i=1; i<=dist.size()-1; i++){
+            if(visited[i]) continue;
+            if(dist[i] < minVal){
+                minVal = dist[i];
+                minNode = i;
+            }
+        }
+        
+        return minNode;
+    }
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<int>dist(n+1, INT_MAX);
+        vector<int>visited(n+1, false);
+        vector<vector<int>>adj(n+1, vector<int>(n+1, -1));
+        
+        for(auto &edge: times)
+            adj[edge[0]][edge[1]] = edge[2];
+        
+        
+        dist[k] = 0;
+        
+        for(int i=0; i<n-1; i++){
+            int minNode = getMinNode(dist, visited);
+            if(minNode == -1) continue;
+            visited[minNode] = true;
+            
+            for(int v=1; v<=n; v++){
+                if(!visited[v] && adj[minNode][v] != -1 && dist[minNode] + adj[minNode][v] < dist[v]){
+                    dist[v] = dist[minNode] + adj[minNode][v];
+                }
+            }
+        }
+        
+        int maxTime = *max_element(dist.begin()+1, dist.end());
+        
+        return maxTime == INT_MAX ? -1 : maxTime;
+    }
+};
