@@ -28,7 +28,7 @@ class Solution:
         # Perform BFS to find # of connected components
         for node in range(n):
             if not self.visited[node] and len(self.adj[node]): # not visited yet & has edges
-                self.DFS(node)
+                self.BFS(node)
                 self.connected_components += 1
         
         # Find the number of 
@@ -37,7 +37,7 @@ class Solution:
         # Think about why this formula?
         # [1] First, we need to connect the unconnected nodes using MINIMUM edge moves -> again, n-1 to make a tree
         # [2] Then, we need to connect the sub-graph we just connected to ALL THE OTHER CONNECTED COMPONENTS -> how many edges need? Ans) # of connected components
-        return (num_unconnected_nodes - 1) + self.connected_components
+        return (num_unconnected_nodes - 1) + (self.connected_components)
     
     # BFS Solution
     def BFS(self, cur_node):
